@@ -28,7 +28,7 @@ const titleClickHandler = function(event){
 
     /* [DONE] get 'href' attribute from the clicked link */
 
-    const articleSelector = clickedElement.getAttribute ("href");
+    const articleSelector = clickedElement.getAttribute ('href');
     console.log(articleSelector);
 
     /* [DONE] find the correct article using the selector (value of 'href' attribute) */
@@ -42,9 +42,68 @@ const titleClickHandler = function(event){
 }
   
 const links = document.querySelectorAll('.titles a');
+console.log('links= ', links);
   
 for(let link of links){
     link.addEventListener('click', titleClickHandler);
 }
+
+
+
+const optArticleSelector = '.post',
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles';
+
+function generateTitleLinks(){
+
+  /* remove contents of titleList */
+
+    const titleList = document.querySelector(optTitleListSelector);
+    console.log('titleList: ', titleList);
+    titleList.innerHTML = '';
+
+  /* for each article */
+
+    const articles = document.querySelectorAll(optArticleSelector);
+    console.log('articles: ', articles);
+
+    let html = '';
+
+    for(let article of articles){
+        console.log('article: ', article);
+
+        /* get the article id */
+
+        const articleId = article.getAttribute ('id');
+        console.log('articleId: ', articleId);
+
+        /* find the title element */
+
+        /* get the title from the title element */
+
+        const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+        console.log('articleTitle: ', articleTitle);
+
+        /* create HTML of the link */
+
+        const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+        console.log('linkHTML: ', linkHTML);
+
+        /* insert link into titleList */
+        
+        html = html + linkHTML;
+        console.log('html: ', html);
+
+        /* insertAdjacentHTML into titleList 
+        titleList.insertAdjacentHTML('afterend', linkHTML);
+        console.log('insertAdjacentHTML titleList: ', titleList);*/
+
+    }
+
+    titleList.innerHTML = html;
+}
+
+generateTitleLinks();
+
 
 }
