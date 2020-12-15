@@ -22,6 +22,7 @@ body {
   font-weight: 300;
   font-size: 16px;
   line-height: 1.7;
+  background: #e6d8d1;
 }
 
 .container {
@@ -34,6 +35,8 @@ body {
   text-transform: uppercase;
   font-family: $font-header;
   font-weight: 600;
+  color: #cbb09f;
+
   span {
     text-transform: none;
     font-weight: 400;
@@ -50,14 +53,24 @@ body {
 
 .sidebar {
   flex: 1 0 0;
+  background: #f8f4f2;
+
+  li {
+    margin-bottom: 5px;
+    
+    a {
+      text-decoration: none;
+      color: $color-dark;
+    }
+  }
 }
 
 .posts {
   flex: 2 0 0;
+  background: $color-light;
 }
 
 .sidebar, .posts {
-  background: $color-light;
   margin-right: 10px;
   padding: 40px;
   border: 1px solid $color-dark;
@@ -80,6 +93,8 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+ 
+
   .active {
     font-weight: bold;
   }
@@ -102,9 +117,21 @@ body {
 /* Post */
 
 .post {
-  display: none;
+  //display: none;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  
   &.active {
     display: block;
+    z-index: 2;
+    position: relative;
+    transition: all 3s;
+    opacity: 1.0;
+
+    .post-title {
+      text-transform: uppercase;
+    }
   }
 }
 
@@ -116,5 +143,9 @@ body {
   display: flex;
   p {
     margin: 0 10px 0 0;
+  }
+  a {
+    padding-right: 7px;
+    color: $color-dark;
   }
 }

@@ -12,6 +12,7 @@ body {
   font-weight: 300;
   font-size: 16px;
   line-height: 1.7;
+  background: #e6d8d1;
 }
 
 .container {
@@ -24,6 +25,7 @@ body {
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
   font-weight: 600;
+  color: #cbb09f;
 }
 
 .section-title span {
@@ -42,15 +44,25 @@ body {
 .sidebar {
   -ms-flex: 1 0 0px;
       flex: 1 0 0;
+  background: #f8f4f2;
+}
+
+.sidebar li {
+  margin-bottom: 5px;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: #444;
 }
 
 .posts {
   -ms-flex: 2 0 0px;
       flex: 2 0 0;
+  background: #fff;
 }
 
 .sidebar, .posts {
-  background: #fff;
   margin-right: 10px;
   padding: 40px;
   border: 1px solid #444;
@@ -88,11 +100,21 @@ body {
 
 /* Post */
 .post {
-  display: none;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
 }
 
 .post.active {
   display: block;
+  z-index: 2;
+  position: relative;
+  transition: all 3s;
+  opacity: 1.0;
+}
+
+.post.active .post-title {
+  text-transform: uppercase;
 }
 
 .post-author {
@@ -106,5 +128,10 @@ body {
 
 .post-tags p {
   margin: 0 10px 0 0;
+}
+
+.post-tags a {
+  padding-right: 7px;
+  color: #444;
 }
 /*# sourceMappingURL=style.css.map */
