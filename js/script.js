@@ -1,6 +1,8 @@
 {
 'use strict';
 
+// titleClickHandler 
+
 const titleClickHandler = function(event){
     event.preventDefault();
     const clickedElement = this;
@@ -41,13 +43,13 @@ const titleClickHandler = function(event){
     targetArticle.classList.add('active');
 }
   
-
+// generateTitleLinks
 
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles';
 
-function generateTitleLinks(){
+const generateTitleLinks = function (customSelector = '') {
 
   /* remove contents of titleList */
 
@@ -57,7 +59,7 @@ function generateTitleLinks(){
 
   /* for each article */
 
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(optArticleSelector + customSelector);
     console.log('articles: ', articles);
 
     let html = '';
