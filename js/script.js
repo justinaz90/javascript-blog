@@ -1,7 +1,7 @@
 {
 'use strict';
 
-// titleClickHandler 
+// titleClickHandler
 
 const titleClickHandler = function(event){
     event.preventDefault();
@@ -42,7 +42,7 @@ const titleClickHandler = function(event){
 
     targetArticle.classList.add('active');
 }
-  
+
 // generateTitleLinks
 
 const optArticleSelector = '.post',
@@ -85,11 +85,11 @@ const generateTitleLinks = function (customSelector = '') {
         console.log('linkHTML: ', linkHTML);
 
         /* insert link into titleList */
-        
+
         html = html + linkHTML;
         console.log('html: ', html);
 
-        /* insertAdjacentHTML into titleList 
+        /* insertAdjacentHTML into titleList
         titleList.insertAdjacentHTML('afterend', linkHTML);
         console.log('insertAdjacentHTML titleList: ', titleList);*/
 
@@ -99,12 +99,11 @@ const generateTitleLinks = function (customSelector = '') {
 
     const links = document.querySelectorAll('.titles a');
     console.log('links= ', links);
-  
+
     for(let link of links){
     link.addEventListener('click', titleClickHandler);
     }
 }
 
 generateTitleLinks();
-
 }
