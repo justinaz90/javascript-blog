@@ -104,7 +104,7 @@ generateTitleLinks();
 
 // generateTags
 
-function generateTags(){
+const generateTags = function (){
 
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
@@ -156,7 +156,7 @@ generateTags();
 
 
 
-function tagClickHandler(event){
+const tagClickHandler = function (event){
 
   /* prevent default action for this event */
   event.preventDefault();
@@ -208,7 +208,7 @@ function tagClickHandler(event){
 
 
 
-function addClickListenersToTags(){
+const addClickListenersToTags = function (){
 
   /* find all links to tags */
   const tagLinks = document.querySelectorAll('a[href^="#tag-"]');
