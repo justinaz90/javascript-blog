@@ -117,8 +117,15 @@ body {
   text-transform: uppercase;
 }
 
-.post-author {
+.post .post-author, .post .author-indicator {
+  display: inline-block;
   font-style: italic;
+  padding-right: 7px;
+}
+
+.post .post-author a {
+  color: #444;
+  text-decoration: none;
 }
 
 .post-tags {

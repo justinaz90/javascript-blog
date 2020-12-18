@@ -133,10 +133,20 @@ body {
       text-transform: uppercase;
     }
   }
-}
 
-.post-author {
-  font-style: italic;
+  .post-author, .author-indicator {
+    display: inline-block;
+    font-style: italic;
+    padding-right: 7px;
+  }
+
+  .post-author {
+
+    a {
+      color: $color-dark;
+      text-decoration: none;
+    }
+  }
 }
 
 .post-tags {
