@@ -16,6 +16,9 @@ console.log('optArticleTagsSelector: ', optArticleTagsSelector);
 const optArticleAuthorSelector = '.post-author';
 console.log('optArticleAuthorSelector: ', optArticleAuthorSelector);
 
+const optTagsListSelector = '.tags.list';
+console.log('optTagsListSelector: ', optTagsListSelector);
+
 
 
 // titleClickHandler
@@ -29,7 +32,7 @@ const titleClickHandler = function(event){
     const activeLinks = document.querySelectorAll('.titles a.active');
 
     for(let activeLink of activeLinks){
-        activeLink.classList.remove('active');
+      activeLink.classList.remove('active');
     }
 
     /* [DONE] add class 'active' to the clicked link */
@@ -40,7 +43,7 @@ const titleClickHandler = function(event){
     const activeArticles = document.querySelectorAll('.posts article.active');
 
     for(let activeArticle of activeArticles){
-    activeArticle.classList.remove('active');
+      activeArticle.classList.remove('active');
     }
 
     /* [DONE] get 'href' attribute from the clicked link */
@@ -114,9 +117,30 @@ generateTitleLinks();
 
 
 
+const calculateTagsParams = function (tags) {
+console.log('tagsParams: ', calculateTagsParams);
+
+  const params = {min: 999999, max: 0};
+
+  for(let tag in tags){
+  console.log(tag + ' is used ' + tags[tag] + ' times');
+
+    if(tags[tag] > params.max){
+      params.max = tags[tag];
+    }
+    if(tags[tag] < params.min){
+      params.min = tags[tag];
+    }
+  }
+  return params;
+}
+
 // generateTags
 
 const generateTags = function (){
+
+  /* [NEW] create a new variable allTags with an empty object */
+  let allTags = {};
 
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
@@ -153,6 +177,14 @@ const generateTags = function (){
       html = html + linkHTML;
       console.log('html: ', html);
 
+       /* [NEW] check if this link is NOT already in allTags */
+       if(!allTags[tag]) {     //  "jeśli allTags NIE MA klucza tag", ! = negacja
+        /* [NEW] add tag to allTags object */
+        allTags[tag] = 1;
+      } else {
+        allTags[tag]++;
+      }
+
     /* END LOOP: for each tag */
     }
 
@@ -161,6 +193,28 @@ const generateTags = function (){
 
   /* END LOOP: for every article: */
   }
+
+  /* [NEW] find list of tags in right column */
+  const tagList = document.querySelector('.tags');
+  console.log('tagList: ', tagList);
+
+  const tagsParams = calculateTagsParams(allTags);
+  console.log('tagsParams: ', tagsParams);
+
+  /* [NEW] create variable for all links HTML code */
+  let allTagsHTML = '';
+
+  /* [NEW] START LOOP: for each tag in allTags: */
+  for(let tag in allTags){
+
+    /* [NEW] generate code of a link and add it to allTagsHTML */
+    allTagsHTML += tag + ' (' + allTags[tag] + ') ';
+
+  /* [NEW] END LOOP: for each tag in allTags: */
+  }
+
+  /*[NEW] add HTML from allTagsHTML to tagList */
+  tagList.innerHTML = allTagsHTML;
 }
 
 generateTags();
