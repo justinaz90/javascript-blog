@@ -19,6 +19,9 @@ console.log('optArticleAuthorSelector: ', optArticleAuthorSelector);
 const optTagsListSelector = '.tags.list';
 console.log('optTagsListSelector: ', optTagsListSelector);
 
+const optCloudClassCout = 5;
+const optCloudClassPrefix = 'tag-size-';
+
 
 
 // titleClickHandler
@@ -117,6 +120,8 @@ generateTitleLinks();
 
 
 
+// calculateTagsParams
+
 const calculateTagsParams = function (tags) {
 console.log('tagsParams: ', calculateTagsParams);
 
@@ -134,6 +139,14 @@ console.log('tagsParams: ', calculateTagsParams);
   }
   return params;
 }
+
+
+
+
+const calculateTagClass = function (count, params) {
+
+}
+
 
 // generateTags
 
@@ -208,7 +221,13 @@ const generateTags = function (){
   for(let tag in allTags){
 
     /* [NEW] generate code of a link and add it to allTagsHTML */
-    allTagsHTML += tag + ' (' + allTags[tag] + ') ';
+
+    //allTagsHTML += tag + ' (' + allTags[tag] + ') ';
+
+    const tagLinkHTML = '<li>' + calculateTagClass(allTags[tag], tagsParams) + '</li>';
+    console.log('tagLinkHTML: ', tagLinkHTML);
+
+    allTagsHTML += tagLinkHTML;
 
   /* [NEW] END LOOP: for each tag in allTags: */
   }
