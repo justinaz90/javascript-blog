@@ -161,3 +161,44 @@ body {
     color: $color-dark;
   }
 }
+
+
+/* Tags */
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  line-height: 1.0;
+  justify-content: space-around;
+
+  .tag-size-1 {
+    font-size: 15px;
+    padding-right: 10px;
+    color: #d4beb0;
+  }
+
+  .tag-size-2 {
+    font-size: 18px;
+    padding-right: 10px;
+    color:#cbb09f;
+  }
+
+  .tag-size-3 {
+    font-size: 22px;
+    padding-right: 10px;
+    color: #c2a28e;
+  }
+
+  .tag-size-4 {
+    font-size: 25px;
+    padding-right: 10px;
+    color: #b9957e;
+  }
+
+  .tag-size-5 {
+    font-size: 30px;
+    padding-right: 10px;
+    color: #b0876d;
+  }
+}

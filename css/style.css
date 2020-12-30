@@ -141,4 +141,47 @@ body {
   padding-right: 7px;
   color: #444;
 }
+
+/* Tags */
+.tags {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  line-height: 1.0;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.tags .tag-size-1 {
+  font-size: 15px;
+  padding-right: 10px;
+  color: #d4beb0;
+}
+
+.tags .tag-size-2 {
+  font-size: 18px;
+  padding-right: 10px;
+  color: #cbb09f;
+}
+
+.tags .tag-size-3 {
+  font-size: 22px;
+  padding-right: 10px;
+  color: #c2a28e;
+}
+
+.tags .tag-size-4 {
+  font-size: 25px;
+  padding-right: 10px;
+  color: #b9957e;
+}
+
+.tags .tag-size-5 {
+  font-size: 30px;
+  padding-right: 10px;
+  color: #b0876d;
+}
 /*# sourceMappingURL=style.css.map */
