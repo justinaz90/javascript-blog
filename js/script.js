@@ -19,6 +19,9 @@ console.log('optArticleAuthorSelector: ', optArticleAuthorSelector);
 const optTagsListSelector = '.tags.list';
 console.log('optTagsListSelector: ', optTagsListSelector);
 
+const optAuthorsListSelector = '.authors.list';
+console.log('optAuthorsListSelector: ', optAuthorsListSelector);
+
 const optCloudClassCount = 5;
 const optCloudClassPrefix = 'tag-size-';
 
@@ -327,6 +330,9 @@ addClickListenersToTags();
 
 const generateAuthors = function (){
 
+  /* [NEW] create a new variable allAuthors with an empty object */
+  let allAuthors = {};
+
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
   console.log('articles: ', articles);
@@ -354,11 +360,42 @@ const generateAuthors = function (){
     html = html + linkHTML;
     console.log('html: ', html);
 
+    /* [NEW] check if this link is NOT already in allAuthors */
+    if(!allAuthors[author]) {  // jeśli allAuthors NIE MA klucza author
+      /* [NEW] add author to allAuthors object*/
+      allAuthors[author] = 1;
+    } else {
+      allAuthors[author] ++;
+    }
+
     /* insert HTML of all the links into the tags wrapper */
     authorWrapper.innerHTML = html;
 
   /* END LOOP: for every article: */
   }
+
+  /* [NEW] find list of authors in right column */
+  const authorList = document.querySelector('.authors');
+
+  /* [NEW] create variable for all links HTML code */
+  let allAuthorsHTML = '';
+
+  /* [NEW] START LOOP: for each author in allAuthors: */
+  for(let author in allAuthors){
+    /* [NEW] generate code of a link and add it to allAuthorsHTML */
+    
+    const authorLinkHTML = '<li><a href="#author-' + author + '">' + author + ' (' + allAuthors[author] + ')</a></li>';
+    console.log('authorLinkHTML: ', authorLinkHTML);
+    //allAuthorsHTML += author + ' (' + allAuthors[author] + ') ';
+
+    allAuthorsHTML += authorLinkHTML;
+  
+  /* [NEW] END LOOP: for each author in allAuthors: */
+  }
+
+  /*[NEW] add HTML from allAuthorsHTML to authorList */
+  authorList.innerHTML = allAuthorsHTML;
+
 }
 
 generateAuthors();
