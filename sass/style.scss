@@ -68,6 +68,7 @@ body {
 .posts {
   flex: 2 0 0;
   background: $color-light;
+  position: relative;
 }
 
 .sidebar, .posts {
@@ -94,7 +95,6 @@ body {
   margin: 0;
   padding: 0;
 
-
   .active {
     font-weight: bold;
   }
@@ -117,13 +117,11 @@ body {
 /* Post */
 
 .post {
-  //display: none;
   position: absolute;
   z-index: 1;
   opacity: 0;
 
   &.active {
-    display: block;
     z-index: 2;
     position: relative;
     transition: all 3s;

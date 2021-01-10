@@ -60,6 +60,7 @@ body {
   -ms-flex: 2 0 0px;
       flex: 2 0 0;
   background: #fff;
+  position: relative;
 }
 
 .sidebar, .posts {
@@ -106,7 +107,6 @@ body {
 }
 
 .post.active {
-  display: block;
   z-index: 2;
   position: relative;
   transition: all 3s;
